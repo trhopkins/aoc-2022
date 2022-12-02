@@ -2,7 +2,7 @@
 
 # Advent of Code 2022
 # Travis Reid Hopkins
-# question 1
+# day 1 part 1
 
 BEGIN {
 	RS = "\n\n";

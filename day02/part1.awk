@@ -2,7 +2,7 @@
 
 # Advent of Code 2022
 # Travis Reid Hopkins
-# question 3
+# day 2 part 1
 
 BEGIN { score = 0; }
 /A X/ { score += 4; }
