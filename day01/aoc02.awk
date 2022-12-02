@@ -16,16 +16,16 @@ BEGIN {
 	for (i=1; i<=NF; i++) {
 		elf_calories += $i;
 	}
-	if (elf_calories > first) {
+	if (elf_calories >= first) {
 		third = second;
 		second = first;
 		first = elf_calories;
 	}
-	else if (elf_calories > second) {
+	else if (elf_calories >= second) {
 		third = second;
 		second = elf_calories;
 	}
-	else if (elf_calories > third) {
+	else if (elf_calories >= third) {
 		third = elf_calories;
 	}
 }
