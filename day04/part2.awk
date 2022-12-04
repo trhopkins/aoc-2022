@@ -4,16 +4,9 @@
 # Travis Reid Hopkins
 # day 4 part 2
 
-BEGIN {
-	FS = "[-,]"
-	total = 0
-}
+BEGIN { FS = "[-,]"; total = 0 }
 
-{
-	total += $1 > $4 || $2 < $3 ? 0 : 1
-}
+{ if (!($1 > $4 || $2 < $3)) total++ }
 
-END {
-	print total
-}
+END { print total }
 
