@@ -5,8 +5,8 @@
 # day 1 part 1
 
 BEGIN {
-	RS = "\n\n"
-	max = 0
+	RS = "" # separate records with empty lines
+	max_calories = 0
 }
 
 {
@@ -14,12 +14,12 @@ BEGIN {
 	for (i=1; i<=NF; i++) {
 		elf_calories += $i
 	}
-	if (elf_calories > max) {
-		max = elf_calories
+	if (elf_calories > max_calories) {
+		max_calories = elf_calories
 	}
 }
 
 END {
-	print max
+	print max_calories
 }
 

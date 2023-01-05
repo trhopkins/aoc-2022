@@ -2,13 +2,11 @@
 
 # Advent of Code 2022
 # Travis Reid Hopkins
-# day 2 part 2
+# day 1 part 2
 
 BEGIN {
-	RS = "\n\n"
-	first = 0
-	second = 0
-	third = 0
+	RS = ""
+	first = second = third = 0
 }
 
 {
@@ -31,7 +29,6 @@ BEGIN {
 }
 
 END {
-	top_three_sum = first + second + third
-	print top_three_sum
+	print first + second + third
 }
 
