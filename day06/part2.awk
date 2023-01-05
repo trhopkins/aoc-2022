@@ -2,7 +2,7 @@
 
 # Advent of Code 2022
 # Travis Reid Hopkins
-# day 2 part 1
+# day 6 part 2
 
 function no_dups(s) {
 	res = ""

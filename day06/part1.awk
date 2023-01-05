@@ -2,10 +2,10 @@
 
 # Advent of Code 2022
 # Travis Reid Hopkins
-# day 2 part 1
+# day 6 part 1
 
 # one of my worst functions ever, leaving this in here to show how much of an
-# idiot I am. All this because AWK's loops don't scope properly.
+# idiot I am. All this because AWK's loops don't scope properly. I think???
 function nope(s) {
 	a = substr(s, 1, 1)
 	b = substr(s, 2, 1)
