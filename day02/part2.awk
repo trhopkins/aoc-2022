@@ -5,6 +5,7 @@
 # day 2 part 2
 
 BEGIN { score = 0 }
+
 /A X/ { score += 3 }
 /A Y/ { score += 4 }
 /A Z/ { score += 8 }
@@ -14,5 +15,6 @@ BEGIN { score = 0 }
 /C X/ { score += 2 }
 /C Y/ { score += 6 }
 /C Z/ { score += 7 }
+
 END { print score }
 
