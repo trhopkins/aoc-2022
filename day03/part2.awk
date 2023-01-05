@@ -5,13 +5,14 @@
 # day 3 part 2
 
 BEGIN {
-	FS = ""
-	for (i=0; i<256; i++) { ord[sprintf("%c", i)] = i } # ord : char -> int. Yeah I know it's fucked up
+	for (byte=0; byte<256; byte++) {
+		ord[sprintf("%c", byte)] = byte # ord : char -> int. Yeah I know it's fucked up
+	}
 	total = 0
 }
 
-function priority(c) {
-	return ord[c] >= 97 ? ord[c] - 96 : ord[c] - 38 # lowercase = 1-26, uppercase = 27-52
+function priority(char) {
+	return ord[char] >= 97 ? ord[char] - 96 : ord[char] - 38 # lowercase = 1-26, uppercase = 27-52
 }
 
 {
@@ -22,22 +23,20 @@ function priority(c) {
 	third = $0
 	matches = ""
 	for (i=1; i<=length(first); i++) {
-		c = substr(first,i,1)
-		if (index(second, c) != 0 && index(matches, c) == 0) {
-			matches = matches c # yes, this append is invisible
+		char = substr(first, i, 1)
+		if (index(second, char) != 0 && index(matches, char) == 0) {
+			matches = matches char # yes, this string concatenation is invisible
 		}
-		if (index(third, c) != 0 && index(matches, c) == 0) {
-			matches = matches c
+		if (index(third, char) != 0 && index(matches, char) == 0) {
+			matches = matches char
 		}
 	}
 	for (i=1; i<=length(second); i++) {
-		c = substr(second,i,1)
-		if (index(third, c) != 0 && index(matches, c)) {
-			badge = c
+		char = substr(second, i, 1)
+		if (index(third, char) != 0 && index(matches, char)) {
+			badge = char
 		}
 	}
-	print matches
-	print badge
 	total += priority(badge)
 }
 

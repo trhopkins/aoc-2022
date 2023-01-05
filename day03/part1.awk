@@ -5,21 +5,22 @@
 # day 3 part 1
 
 BEGIN {
-	FS = ""
-	for (i=0; i<256; i++) { ord[sprintf("%c", i)] = i } # ord : char -> int. Yeah I know it's fucked up
+	for (byte=0; byte<256; byte++) {
+		ord[sprintf("%c", byte)] = byte # ord : char -> int. Yeah, I know it's fucked up
+	}
 	total = 0
 }
 
-function priority(c) {
-	return ord[c] >= 97 ? ord[c] - 96 : ord[c] - 38 # lowercase = 1-26, uppercase = 27-52
+function priority(char) {
+	return ord[char] >= 97 ? ord[char] - 96 : ord[char] - 38 # lowercase = 1-26, uppercase = 27-52
 }
 
 {
-	middle = NF / 2
+	middle = length() / 2
 	for (left=1; left<=middle; left++) {
-		for (right=middle+1; right<=NF; right++) {
-			if ($left == $right) {
-				duplicate = $left
+		for (right=middle+1; right<=length(); right++) {
+			if (substr($0, left, 1) == substr($0, right, 1)) {
+				duplicate = substr($0, right, 1)
 			}
 		}
 	}
