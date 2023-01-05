@@ -5,7 +5,6 @@
 # day 5 part 1
 
 BEGIN {
-	FS = "" # will be changed later during move operations
 	for (i=1; i<=9; i++) {
 		top[i] = front[i] = rear[i] = 0
 	}
@@ -13,28 +12,28 @@ BEGIN {
 
 function push(s, c) {
 	tmp = ++top[s]
-	stack[s,tmp] = c
+	stack[s, tmp] = c
 }
 
 function pop(s) {
 	tmp = top[s]--
-	return stack[s,tmp]
+	return stack[s, tmp]
 }
 
 function enqueue(q, c) {
 	tmp = front[q]++
-	queue[q,tmp] = c
+	queue[q, tmp] = c
 }
 
 function dequeue(q) {
 	tmp = rear[q]++
-	return queue[q,tmp]
+	return queue[q, tmp]
 }
 
 # add all cargo to stacks
 /\[/ {
 	for (i=1; i<=9; i++) {
-		cargo = $((i-1)*4 + 2)
+		cargo = substr($0, (i-1)*4 + 2, 1)
 		if (cargo != " ") {
 			push(i, cargo)
 		}
@@ -51,7 +50,6 @@ function dequeue(q) {
 			push(i, dequeue(i))
 		}
 	}
-	FS = " " # for move operations later
 }
 
 # for each move operation, pop and push the correct quantity
@@ -66,5 +64,6 @@ END {
 	for (i=1; i<=9; i++) {
 		printf("%c", pop(i))
 	}
+	printf("\n")
 }
 
